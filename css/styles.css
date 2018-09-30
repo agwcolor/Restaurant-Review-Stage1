@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+
+
 /* CSS Document */
 
 *,
@@ -38,7 +40,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #3397db;
+    color: #F68B0B;
     text-decoration: none;
 }
 
@@ -79,13 +81,7 @@ section {
     align-items: center;
 }
 
-#maincontent2 {
-    background-color: #f3f3f3;
-    min-height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+
 
 #footer {
     background-color: #444;
@@ -99,21 +95,24 @@ section {
 }
 
 
-/* ====================== Navigation ====================== */
 
-nav {
+/* ====================== Header ====================== */
+
+header {
     width: 100%;
     height: 80px;
     background-color: #252831;
     text-align: center;
     position: fixed;
+    display: block;
+    z-index: 1000;
 }
 
-nav h1 {
+header h1 {
     margin: auto;
 }
 
-nav h1 a {
+header h1 a {
     color: #fff;
     font-size: 14pt;
     font-weight: 200;
@@ -121,17 +120,28 @@ nav h1 a {
     text-transform: uppercase;
 }
 
+
+
+/* ====================== Navigation ====================== */
+
+nav {
+    padding: 1.5em 3em 0em 3em;
+    z-index: 1500;
+    position: fixed;
+}
+
 #breadcrumb {
-    padding: 11em 0em 3em 3em;
+    padding: 0em 0em 3em 3em;
     list-style: none;
-    z-index: 1;
     /* background-color: #eee;*/
     font-size: .3em;
     margin: 0;
     width: 100%;
+    /*text-align: center;*/
     /*width: calc(50% - 80px);*/
-    position: fixed;
 }
+
+
 
 
 /* Display list items side by side */
@@ -139,6 +149,8 @@ nav h1 a {
 #breadcrumb li {
     display: inline;
 }
+
+
 
 
 /* Add a slash symbol (/) before/behind each list item */
@@ -150,12 +162,16 @@ nav h1 a {
 }
 
 
+
+
 /* Add a color to all links inside the list */
 
 #breadcrumb li a {
     color: #0275d8;
     text-decoration: none;
 }
+
+
 
 
 /* Add a color on mouse-over */
@@ -166,28 +182,33 @@ nav h1 a {
 }
 
 
+
+
 /* ====================== Map / Nonmap====================== */
 
 #map {
-    height: 30em;
+    height: 40em;
     width: 100%;
     background-color: #ccc;
+    z-index: 100;
 }
 
 #map-container {
     height: 100%;
     width: 100%;
     background-color: #ccc;
+    z-index: 0;
 }
 
 #nonmap-container {
     height: 100%;
     width: 50%;
-    background-color: #ccc;
+    background-color: #EFE;
     display: flex;
     flex-direction: column;
     align-items: left;
 }
+
 
 
 /* ====================== Restaurant Filtering ====================== */
@@ -283,7 +304,17 @@ nav h1 a {
 }
 
 
+
+
 /* ====================== Restaurant Details ====================== */
+
+.inside #maincontent {
+    background-color: #f3f3f3;
+    min-height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .inside header {
     position: fixed;
@@ -294,7 +325,7 @@ nav h1 a {
 
 .inside #map-container {
     background: blue none repeat scroll 0 0;
-    height: 87%;
+    height: 100%;
     position: fixed;
     right: 0;
     top: 80px;
@@ -352,9 +383,9 @@ nav h1 a {
     border-bottom: 1px solid #d9d9d9;
     border-top: 1px solid #fff;
     /*padding: 140px 40px 30px;*/
-  /*  padding: 7em 3em 3em 3em;*/
-
-    width: 85%;
+    /*  padding: 7em 3em 3em 3em;*/
+    /*width: 85%;*/
+    z-index: 1;
 }
 
 #reviews-container {
@@ -362,7 +393,7 @@ nav h1 a {
 }
 
 #restaurant-container {
-    padding: 7em 3em 3em 3em;
+    padding: 7em 3em 2em 3em;
 }
 
 #reviews-container h2 {
@@ -391,9 +422,14 @@ nav h1 a {
 }
 
 #reviews-list li p {
-    margin: 0 0 10px;
+    margin: 0 0 .9em;
 }
 
 #restaurant-hours td {
     color: #666;
+}
+
+.leaflet-control-container {
+    position: absolute;
+    top: 7em
 }
