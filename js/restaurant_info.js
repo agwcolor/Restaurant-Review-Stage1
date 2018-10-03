@@ -24,7 +24,7 @@ initMap = () => {
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
         mapboxToken: 'pk.eyJ1IjoiYWJiaWV3IiwiYSI6ImNqbW12eDc2MjBuZzkzcW83YzczM3RhaDMifQ.eMmDm29jiMFiJsJTz6LsNQ',
         maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        attribution: 'Map data &copy; <a tabindex="-1" role="mapbox attribution" href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
           '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
           'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         id: 'mapbox.streets'
@@ -82,15 +82,21 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
+  /*name.setAttribute("tabindex", "3");*/
+  name.setAttribute("id", "restaurant");
+  //name.setAttribute("aria-owns", "restaurant");
+
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img';
+  image.setAttribute("alt", "Picture of" + restaurant.name);
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
+  cuisine.setAttribute("aria-label", "Type of Cuisine is"+ restaurant.cuisine_type);
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -111,6 +117,8 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 
     const day = document.createElement('td');
     day.innerHTML = key;
+    day.setAttribute("tabindex", "0");
+
     row.appendChild(day);
 
     const time = document.createElement('td');
@@ -128,6 +136,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
+  title.setAttribute("tabindex", "0");
+
   container.appendChild(title);
 
   if (!reviews) {
@@ -139,6 +149,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const ul = document.getElementById('reviews-list');
   reviews.forEach(review => {
     ul.appendChild(createReviewHTML(review));
+    ul.setAttribute("tabindex", "0");
+
   });
   container.appendChild(ul);
 }
@@ -148,6 +160,10 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  li.setAttribute("aria-role", "list-item");
+  li.setAttribute("tabindex", "0");
+
+
   const name = document.createElement('p');
   name.innerHTML = review.name;
   li.appendChild(name);
@@ -164,6 +180,8 @@ createReviewHTML = (review) => {
   comments.innerHTML = review.comments;
   li.appendChild(comments);
 
+
+
   return li;
 }
 
@@ -174,6 +192,7 @@ fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
+  li.setAttribute("aria-current", "page");
   breadcrumb.appendChild(li);
 }
 

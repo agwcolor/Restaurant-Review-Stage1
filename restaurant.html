@@ -13,12 +13,13 @@
 <body class="inside">
     <!-- Beginning header -->
     <header>
-        <h1><a href="/">Restaurant Reviews</a></h1>
+        <h1><a tabindex="1" href="/">Restaurant Reviews</a></h1>
         <!-- Beginning breadcrumb -->
-            <nav>
-                <ul id="breadcrumb">
+            <nav >
+                <ol aria-label="Breadcrumb" tabindex="0" id="breadcrumb">
                     <li><a href="/">Home</a></li>
-                </ul>
+                    <!-- tabindex="2" -->
+                </ol>
             </nav>
             <!-- End breadcrumb -->
     </header>
@@ -30,16 +31,16 @@
         <section id="nonmap-container">
 
             <section id="restaurant-container">
-                <h1 id="restaurant-name"></h1>
+                <h1 tabindex="0" id="restaurant-name"></h1>
                 <img id="restaurant-img">
-                <p id="restaurant-cuisine"></p>
-                <p id="restaurant-address"></p>
-                <table id="restaurant-hours"></table>
+                <p tabindex="0" id="restaurant-cuisine"></p>
+                <p tabindex="0" id="restaurant-address"></p>
+                <table tabindex="0" id="restaurant-hours" aria-role="list"></table>
             </section>
             <!-- end restaurant -->
             <!-- Beginning reviews -->
             <section id="reviews-container">
-                <ul id="reviews-list"></ul>
+                <ul aria-role="list" id="reviews-list"></ul>
             </section>
             <!-- End reviews -->
             <!-- Beginning footer -->

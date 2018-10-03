@@ -167,7 +167,7 @@ nav {
 /* Add a color to all links inside the list */
 
 #breadcrumb li a {
-    color: #0275d8;
+    color: #E7CB1B;
     text-decoration: none;
 }
 
@@ -396,6 +396,14 @@ nav {
     padding: 7em 3em 2em 3em;
 }
 
+#restaurant-container h1 {
+    color: #f58500;
+    font-size: 24pt;
+    font-weight: 300;
+    letter-spacing: -1px;
+    padding-bottom: 1pt;
+}
+
 #reviews-container h2 {
     color: #f58500;
     font-size: 24pt;
@@ -429,7 +437,20 @@ nav {
     color: #666;
 }
 
+.leaflet-pane {
+  tabindex: -1;
+}
+
 .leaflet-control-container {
     position: absolute;
     top: 7em
+}
+
+.hidden {
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+overflow:hidden;
 }
