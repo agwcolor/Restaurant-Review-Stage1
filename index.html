@@ -12,7 +12,7 @@
 </head>
 <header aria-label="Home">
     <h1><a href="/">Restaurant Reviews</a></h1>
-    <a class="hidden" href="#filter">Skip over map to filter</a> 
+    <a class="hidden" href="#filter">Skip over map to filter</a>
 </header>
 
 <body>
@@ -21,14 +21,14 @@
             <div id="map" class="map_front"></div>
         </section>
         <section id="filter" class="filter-options">
-            <h2 tabindex="0">Filter Results
+            <h2 tabindex="0">Filter Results</h2>
             <select tabindex="0" role="listbox" aria-label="Filter by Neighborhood" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
                 <option value="all">All Neighborhoods</option>
             </select>
             <select tabindex="0" role="listbox" aria-label="Filter by Cuisine" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
                 <option value="all">All Cuisines</option>
             </select>
-          </h2>
+        
         </section>
         <section class="restaurants-list">
             <ul id="restaurants-list"></ul>
