@@ -5,27 +5,12 @@ var newMap
 var markers = []
 
 /**
-*Register Service Worker - sw.js
-**/
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-  .register('/sw.js', {scope: '/mws-restaurant-stage-1'})
-  .then(function() {
-    console.log("service worker is registered");
-  })
-  .catch(function(err) {
-    console.error(err);
-});
-}
-
-/**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
-    initMap(); // added
     fetchNeighborhoods();
     fetchCuisines();
+    initMap(); // added
 });
 
 /**

@@ -472,12 +472,14 @@ nav {
         padding: .6em 0;
     }
     .filter-options h2 {
-        font-size: 1.3rem;
+        font-size: 1.0rem;
+        alignment-baseline: central;
     }
 
     .filter-options select {
         margin: .4rem;
         padding: 0 .5rem;
+        width: 90%;
     }
 
     /*  inside main content */
