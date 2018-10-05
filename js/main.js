@@ -4,24 +4,20 @@ let restaurants,
 var newMap
 var markers = []
 
-/** Register Service Worker **/
+/**
+*Register Service Worker - sw.js
+**/
 
-
-/** Register Service Worker **/
-navigator.serviceWorker.register('/sw.js', {
-    scope: '/mws-restaurant-stage-1/'
-});
-
-
-/*
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-  .register('/sw.js')
+  .register('/sw.js', {scope: '/mws-restaurant-stage-1'})
+  .then(function() {
+    console.log("service worker is registered");
+  })
   .catch(function(err) {
     console.error(err);
 });
-}*/
-
+}
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -80,7 +76,6 @@ fetchCuisines = () => {
  */
 fillCuisinesHTML = (cuisines = self.cuisines) => {
     const select = document.getElementById('cuisines-select');
-
     cuisines.forEach(cuisine => {
         const option = document.createElement('option');
         option.innerHTML = cuisine;
@@ -181,18 +176,14 @@ createRestaurantHTML = (restaurant) => {
 
     const image = document.createElement('img');
     image.className = 'restaurant-img';
-    image.setAttribute("alt", "Picture of " + restaurant.name);
+    image.setAttribute("alt", "Picture of " + restaurant.name); //add alt for imgs
     image.src = DBHelper.imageUrlForRestaurant(restaurant);
     li.append(image);
 
     const name = document.createElement('h2');
     name.innerHTML = restaurant.name;
     name.setAttribute("id", "restaurant");
-
-    //name.setAttribute("aria-owns", restaurant.name);
-
-    name.tabIndex = '0';
-
+    name.tabIndex = '0'; //make element selectable
     li.append(name);
 
     const neighborhood = document.createElement('p');
@@ -205,11 +196,12 @@ createRestaurantHTML = (restaurant) => {
 
     const more = document.createElement('a');
     more.innerHTML = 'View Details';
-    more.arialabel = '`{restaurant.name}`';
+    more.arialabel = '`{restaurant.name}`'; //add aria label
     more.href = DBHelper.urlForRestaurant(restaurant);
-    more.tabIndex = '0';
-    more.setAttribute("role", "button");
-    more.setAttribute("id", restaurant.name);
+    /* add aria */
+    more.tabIndex = '0'; // make element selectable
+    more.setAttribute("role", "button"); //a aria button role to a element
+    more.setAttribute("id", restaurant.name); //add aria label
     more.setAttribute("aria-label", restaurant.name + " details");
 
     li.append(more)
@@ -231,6 +223,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
         self.markers.push(marker);
     });
 }
+
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map

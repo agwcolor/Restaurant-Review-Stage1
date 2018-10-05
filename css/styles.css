@@ -1,7 +1,6 @@
-@charset "utf-8";
-
-
 /* CSS Document */
+
+@charset "utf-8";
 
 *,
 *::before,
@@ -81,7 +80,6 @@ section {
 }
 
 
-
 #footer {
     background-color: #444;
     color: #aaa;
@@ -92,6 +90,7 @@ section {
     text-align: center;
     text-transform: uppercase;
 }
+
 
 /* ====================== Header ====================== */
 
@@ -118,6 +117,7 @@ header h1 a {
     text-transform: uppercase;
 }
 
+
 /* ====================== Navigation ====================== */
 
 nav {
@@ -137,11 +137,13 @@ nav {
     /*width: calc(50% - 80px);*/
 }
 
+
 /* Display list items side by side */
 
 #breadcrumb li {
     display: inline;
 }
+
 
 /* Add a slash symbol (/) before/behind each list item */
 
@@ -151,6 +153,7 @@ nav {
     content: "/\00a0";
 }
 
+
 /* Add a color to all links inside the list */
 
 #breadcrumb li a {
@@ -158,12 +161,14 @@ nav {
     text-decoration: none;
 }
 
+
 /* Add a color on mouse-over */
 
 #breadcrumb li a:hover {
     color: #01447e;
     text-decoration: underline;
 }
+
 
 /* ====================== Map / Nonmap====================== */
 
@@ -189,7 +194,6 @@ nav {
     flex-direction: column;
     align-items: left;
 }
-
 
 
 
@@ -225,6 +229,7 @@ nav {
     padding: 0 .5rem;
     width: 10rem;
 }
+
 
 
 
@@ -292,8 +297,6 @@ nav {
     text-decoration: none;
     text-transform: uppercase;
 }
-
-
 
 
 
@@ -434,26 +437,32 @@ nav {
     top: 7em
 }
 
-/*.hidden ()  --- for hidden skip link )
-position:absolute;
-left:-10000px;
-top:auto;
-width:1px;
-height:1px;
-overflow:hidden;
-}*/
+.hidden {
+    /*--- for hiding skip link )*/
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 
+/* ====================== Responsive css ====================== */
 
-/*        RESPONSIVE CSS         */
-
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 30em) {
 
     h1 {
         font-size: .1rem;
+        line-height: 10em;
+    }
+
+    header h1 a {
+        font-size: 1.4rem;
     }
 
     nav {
-        padding: 5.5em 3em 0em 3em;
+        padding: 5em 3em 0em 3em;
+        align-items: left;
         z-index: 1500;
     }
 
@@ -465,31 +474,25 @@ overflow:hidden;
         align-items: center;
     }
 
-    header h1 {
-        margin: auto;
-        padding: .7vw 0;
-    }
-
-    header h1 a {
-        color: #fff;
-        font-size: 1.2rem;
-        font-weight: 200;
-        letter-spacing: .8rem;
-        text-transform: uppercase;
-    }
-
-    .header-title {
-        font-size: 1em;
+    #map {
+        height: 25em;
     }
 
     .filter-options {
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
+        flex-direction: row;
+        /*flex-wrap: ;*/
+        align-items: space-between;
+        /*align-items: center;*/
+        padding: .6em 0;
     }
     .filter-options h2 {
         font-size: 1.3rem;
+    }
+
+    .filter-options select {
+        margin: .4rem;
+        padding: 0 .5rem;
     }
     /*  inside main content */
     .inside #maincontent {
@@ -515,7 +518,6 @@ overflow:hidden;
     }
 
     .inside #nonmap-container {
-        order: 2;
         height: 100%;
         width: 100%;
         background-color: #EFE;
@@ -541,7 +543,10 @@ overflow:hidden;
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 37em) {
+    header h1 a {
+        font-size: 1.6rem;
+    }
 
     #restaurants-list {
         display: flex;
@@ -552,14 +557,17 @@ overflow:hidden;
     }
 
     #restaurants-list li {
-        /*order: 1;*/
         width: 100%;
         flex: 0 50%;
     }
 }
 
 
-@media screen and (min-width:900px) {
+@media screen and (min-width:56em) {
+    header h1 a {
+        font-size: 1.8rem;
+    }
+
     #restaurants-list {
         display: flex;
         flex-direction: row;
@@ -572,9 +580,23 @@ overflow:hidden;
         width: 100%;
         flex: 0 33%;
     }
+
+    header {
+        height: 8em;
+    }
+
+    #restaurant-container {
+        padding: 9em 3em 2em 3em;
+    }
+
+
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 93em) {
+    header h1 a {
+        font-size: 1.8rem;
+    }
+
     #maincontent {
         width: 100%;
         margin-left: auto;
