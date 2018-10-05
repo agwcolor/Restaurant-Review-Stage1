@@ -479,7 +479,7 @@ nav {
     .filter-options select {
         margin: .4rem;
         padding: 0 .5rem;
-        width: 90%;
+        font-size: 1em;
     }
 
     /*  inside main content */
