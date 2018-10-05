@@ -30,13 +30,13 @@ This is a responsive restaurant review app - Stage 1.
 
 2. Use your browser to resize the screen to see different views.
 
-3. A service worker is also caching the assets in the background (in rest-app-v1). These will become live in the next stage.
+3. A service worker is also caching the assets in the background (in rest-app-v1). 
 
 ## Background
 This project has implemented accessibility,  responsiveness, and installed a service worker managing a cache (in rest-app-v1). : [Project Overview](ProjectOverview.md) 
 
 ## Dependencies
-Although the assests for this app are cached, functionality has not been built in yet to use them since it's just stage1. 
+Visited images and files have been cached, not the maps.
 
 You will need a local webserver running. In addition, this app requires access to the following : mainly Map Box and Leaflet resources (http://www.mapbox.com).
 
